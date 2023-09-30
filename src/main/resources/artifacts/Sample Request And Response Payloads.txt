@@ -1,0 +1,104 @@
+ICTG UserManager APIs
+
+CreateUser
+Http Method: POST
+URL:http://127.0.0.1:9096/ictg/user-manager/create-user
+RequestPayload:{
+    "userId": "john042m",
+    "userName": "John Ake",
+    "encryptedPassword":"60a6529be743b8943951b7b5ad2150e2680c4acfb018c0db3c460840f95e2000718f789f9ed2d22cbe185f606720c8b262354a558fcbf79032d0628b4e42db51",
+    "email": "johnake@gmail.com",
+    "phoneNumber" : "070511338388"
+}
+
+Response: {
+    "status": "SUCCESSFUL",
+    "responseCode": "000",
+    "responseMessage": "User Creation Successful",
+    "responseDetails": "User with userId: john042m successfully created!"
+}
+
+GetAllUsers
+Http Method: GET
+URL:http://127.0.0.1:9096/ictg/user-manager/all-users
+RequestPayload:
+Response:
+{
+    "status": "SUCCESSFUL",
+    "responseCode": "000",
+    "responseMessage": "All Users Information Fetched!",
+    "responseDetails": [
+        {
+            "userName": "Mercy Peter",
+            "phoneNumber": "07908899449",
+            "email": "mercypeter@gmail.com"
+        },
+        {
+            "userName": "John Ake",
+            "phoneNumber": "07051133838",
+            "email": "johnake@gmail.com"
+        }
+    ]
+}
+
+Get User
+Http Method: GET
+URL:http://127.0.0.1:9096/ictg/user-manager/user/mercyPeter@gmail.com
+RequestPayload:
+Response: {
+    "status": "SUCCESSFUL",
+    "responseCode": "000",
+    "responseMessage": "Users Information Fetched!",
+    "responseDetails": {
+        "userName": "Mercy Peter",
+        "phoneNumber": "07908899449",
+        "email": "mercypeter@gmail.com"
+    }
+}
+
+Update User
+Http Method: PUT
+URL: http://127.0.0.1:9096/ictg/user-manager/update-user
+RequestPayload: {
+    "userId": "mercyPeter@gmail.com",
+    "userName": "Mercy John",
+    "phoneNumber" : "07908899449"
+}
+
+Response: {
+    "status": "SUCCESSFUL",
+    "responseCode": "000",
+    "responseMessage": "User Update Successful",
+    "responseDetails": "User with userId: mercyPeter@gmail.com successfully updated!"
+}
+
+
+
+Disable User
+Http Method: POST
+URL: http://127.0.0.1:9096/ictg/user-manager/disable-user/john042m
+RequestPayload:
+Response:{
+    "status": "SUCCESSFUL",
+    "responseCode": "000",
+    "responseMessage": "User Successfully Disabled!",
+    "responseDetails": null
+}
+
+
+Authenticate User
+Http Method: POST
+URL: http://127.0.0.1:9096/ictg/user-manager/authenticate-user
+RequestPayload: {
+    "userId": "mercyPeter@gmail.com",
+    "encryptedPassword":"7f7bf0c4ef024de99d3331d468334ba1b74a22fbcc20f1b8823bda7e906c3d2f32c4731cbebe9622594989f5d50cc7365adc908873eb6636fd929b669caf3042"
+}
+
+Response: {
+    "status": "SUCCESSFUL",
+    "responseCode": "000",
+    "responseMessage": "User Successfully Authenticated",
+    "responseDetails": "User Successfully Authenticated"
+}
+
+
